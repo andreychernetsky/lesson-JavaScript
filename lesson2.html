@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+    <p id="num1"></p>
+  <!-- <button id="btn">нажми сюда</button> -->
+
+<!-- 1) напишем переменную  в которую поместим prompt и предадим параметром в функцию
+2) напишем функцию app
+3) напишем переменную text 
+text-будет выводиться в return это результат определения числа ,которое ввел пользователь
+и мы будем знать к какому подъезду относится эта квартира
+4) напишем условие определения номера к вартиры к подъезду
+5) напишем переменную result  в нее поместим вызов функции
+6) обратимся к параграфу через индентификатор и выведем result -->
+  <script>
+  function app(apartment) { //2
+  let text; //3
+  if (apartments >= 1 && apartments <= 11) { //4
+    text = "первый"; 
+  } 
+  if (apartments >= 12 && apartments <= 23) { 
+    text = "второе"; 
+  } 
+  if (apartments >= 24 && apartments <= 35) { 
+    text = "третье"; 
+  } 
+  return text; 
+} 
+
+
+const apartments = prompt("введи номер квартиры"); //1
+const result = app(apartments); //5
+document.getElementById('num1').innerHTML = result; //6
+
+
+   // задача 2
+   // Напишите функцию provSpam(str), которая будет проверять строку на наличие подстрок: «spam», «sex», «xxx». И возвращать true, если есть данные подстроки и false в противном случае.
+
+// 1) пишем стрелочную функцию 
+// 2) пишем условие .Используем indexOf если одно из или будет найдено ,то выдаст истину
+// 3) return вернет истину или лож
+// 4)создадим переменную string 
+// 5)и параметром поместим ее в вызов функции
+// 6)обратимся к кнопки по кику на которую сработает функция 
+// 7) обратимся к  индентификатору параграфа и через innerText передадим вызов функции
+const provSpam = (str) => { 
+    if(str.indexOf('spam') !==-1 || str.indexOf('sex') !==-1 || str.indexOf('xxx') !==-1) return true
+        else return false;
+    }
+    const string = "найти xxx "; //4
+    document.getElementById('btn').addEventListener('click',()=>document.getElementById('num1').innerText = provSpam(string));//5//6//7
+
+  </script>
+</body>
+</html>
