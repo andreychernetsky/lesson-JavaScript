@@ -6,7 +6,15 @@
 </head>
 <body>
     <p id="num1"></p>
-  <!-- <button id="btn">нажми сюда</button> -->
+  <button id="btn">нажми сюда</button>
+
+   <!--к задаче шифр цезаря-->
+    <textarea id="in"></textarea>
+    <p id="out"></p>
+    <hr>
+    <p id="help"></p>
+    <textarea  id="out2"></textarea>
+    <p id="out3"></p>
 
 <!-- 1) напишем переменную  в которую поместим prompt и предадим параметром в функцию
 2) напишем функцию app
@@ -20,16 +28,16 @@ text-будет выводиться в return это результат опр�
   function app(apartment) { //2
   let text; //3
   if (apartments >= 1 && apartments <= 11) { //4
-    text = "первый"; 
-  } 
-  if (apartments >= 12 && apartments <= 23) { 
-    text = "второе"; 
-  } 
-  if (apartments >= 24 && apartments <= 35) { 
-    text = "третье"; 
-  } 
-  return text; 
-} 
+    text = "первый";
+  }
+  if (apartments >= 12 && apartments <= 23) {
+    text = "второе";
+  }
+  if (apartments >= 24 && apartments <= 35) {
+    text = "третье";
+  }
+  return text;
+}
 
 
 const apartments = prompt("введи номер квартиры"); //1
@@ -40,19 +48,108 @@ document.getElementById('num1').innerHTML = result; //6
    // задача 2
    // Напишите функцию provSpam(str), которая будет проверять строку на наличие подстрок: «spam», «sex», «xxx». И возвращать true, если есть данные подстроки и false в противном случае.
 
-// 1) пишем стрелочную функцию 
+// 1) пишем стрелочную функцию
 // 2) пишем условие .Используем indexOf если одно из или будет найдено ,то выдаст истину
 // 3) return вернет истину или лож
-// 4)создадим переменную string 
+// 4)создадим переменную string
 // 5)и параметром поместим ее в вызов функции
-// 6)обратимся к кнопки по кику на которую сработает функция 
+// 6)обратимся к кнопки по кику на которую сработает функция
 // 7) обратимся к  индентификатору параграфа и через innerText передадим вызов функции
-const provSpam = (str) => { 
+const provSpam = (str) => {
     if(str.indexOf('spam') !==-1 || str.indexOf('sex') !==-1 || str.indexOf('xxx') !==-1) return true
         else return false;
     }
     const string = "найти xxx "; //4
     document.getElementById('btn').addEventListener('click',()=>document.getElementById('num1').innerText = provSpam(string));//5//6//7
+
+    // через промисс
+let prom = new Promise((resolve,reject)=>{
+  const str = "lllll xxx";
+  sitTimeout(()=>{
+    if(str.indexOf('span') !==-1 || str.indexOf('xxx') !==-1 str.indexOf('sex') !==-1) resolve(true);
+    else resolve(false);
+  },1000);
+});
+prom
+ .then((resolve)=>document.getElementById('num1').innerText=resolve)
+ .catch((reject)=> document.getElementById('num1').innerText = reject);
+
+  // Шрифт цезаря задача
+  //Shamanix
+  //Пробелы заменять случайными символами
+
+  // 2) напишем переменную и в нее поместим help
+  // 3) поместим в переменную help string
+  // 4) сделаем вызов  console.log(this.value);//this указывает на
+  // первый шаг
+  // document.getElementById('in').oninput = function() { //1)
+  // 	let help = document.getElementById('help'); //2)
+  // 	help.innerHTML = String.fromCharCode(527);
+  // 	console.log(this.value);
+  // }
+
+  // 5) теперь нам нужно вывести код этого значение, создаем переменную
+  // let  str = this.value;
+  // 6) наришем console.log(str.charCodeAt(0));
+
+  // document.getElementById('in').oninput = function() {
+  // 	let help = document.getElementById('help');
+  // 	help.innerHTML = String.fromCharCode(527);
+  // 	let str = this.value; //5
+  // 	console.log(str.charCodeAt(0)); //6
+  // }
+
+  // шаг 3
+  // а) нужно получить строку из textarea
+  // b) ту строку нужно перебрать посимвольно
+  // g) получить код прибавить к нему смещение
+
+  // 7) пишем переменную для смещения
+  // 8) сформируем строку которую будем выводить
+  // 9) напишем цикл для перебора строки
+  // 10) получаем код символа
+  // 11) добавляем смещение
+  // 12) теперь нам нужно ПРЕОБРАЗОВА́ТЬ в символ и добавить в out
+  // 13) результат прохода цикла нужно поместить в id="out"
+
+  document.getElementById('in').oninput = function() {
+      //шифруем
+      const offset = 3; //7
+      let help = document.getElementById('help');
+      //из кода в символ
+      help.innerHTML = String.fromCharCode(527);
+      let str = this.value; //5
+      //из символа в код
+      console.log(str.charCodeAt(0)); //6
+      let out = ''; //8
+      for(let i = 0; i < str.length; i++) { //9
+          let code = str.charCodeAt(i); //10
+          code = code + offset; //11
+          out += String.fromCharCode(code); //12
+
+      }
+      document.getElementById('out').innerHTML = out; //13
+  }
+
+  // пишем расшифровку нашей строки
+  // 14) обращаемся к textarea  id="out2"
+  // 15) пишем const offset = 3;
+  // 16) получаем строку let str = this.value;
+  // 17) пишем выходную строку let out = '';
+  // 18) пишем цикл в котром перебираем строку
+  // 19) выводим строку в новый элемент
+
+  document.getElementById('out2').oninput = function(){ //14
+      const offset = 3; //15
+      let str = this.value; //16
+      let out = ''; 17
+      for (let i=0; i< str.length; i++){ //18
+          let code = str.charCodeAt(i);
+          code = code - offset; //отнимаем смещение
+          out += String.fromCharCode(code);
+      }
+      document.getElementById('out3').innerHTML = out; //19
+  }
 
   </script>
 </body>
