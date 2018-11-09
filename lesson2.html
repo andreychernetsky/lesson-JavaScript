@@ -6,14 +6,16 @@
 </head>
 <body>
   <style>
-  div{
+  /*div{
     width: 30px;
     height: 30px;
     background: green;
-  }
+  }*/
   </style>
-    <p id="num1"></p>
-  <button id="btn">нажми сюда</button>
+ <!--  задача // Посчитать четные и нечетные цифры введенного натурального числа. Например, если введено число 34560, то у него 3 четные цифры (4, 6 и 0) и 2 нечетные (3 и 5). четных (even) и нечетных (odd). Сделать через цикл while. -->
+
+  <!--   <p id="num1"></p>
+  <button id="btn">нажми сюда</button> -->
  <!-- таймеры -->
  <div id="test"></div>
    <!--к задаче шифр цезаря-->
@@ -81,6 +83,11 @@ text-будет выводиться в return это результат опр�
 // prom
 //  .then((resolve)=>document.getElementById('num1').innerText=resolve)
 //  .catch((reject)=> document.getElementById('num1').innerText = reject);
+
+// через регулярку
+// let str = "dfddgg ";
+// const provSpam = str => /xxx/.test(str)| /span/.test(str) | /sex/.test(str);
+// document.getElementById('test').innerText = provSpam(str);
 
   // Шрифт цезаря задача
   //Shamanix
@@ -160,7 +167,7 @@ text-будет выводиться в return это результат опр�
   // }
 
 
- разбор задачи на таймеры
+ // разбор задачи на таймеры
 // 1) напишем переменную, которая будет делать сдвиг div
 
 // 2) получим индентификатор для параграфа
@@ -191,50 +198,77 @@ text-будет выводиться в return это результат опр�
  // 7) напишем clearInterval(timer) о остановит и очистит таймер
  // в clearInterval(timer); параметром мы добавляем индентифекатор, того таймера
  // который мы запускаемshift = 0; //1
-let test = document.getElementById('test'); //2
+// let test = document.getElementById('test'); //2
 
-function move() { //3
-  test.style.marginLeft = shift + 'px';
-  shift = shift + 3;
-}
-let timer = setInterval(move, 50);
-document.getElementById('btn').onclick = function() { //6
-  // как это работает. мы обращаемся к нашей кнопке по ее идентификатору
-  // и вешаем обработчик onclick и после клика сработает функция
-  clearInterval(timer); //7
+// function move() { //3
+//   test.style.marginLeft = shift + 'px';
+//   shift = shift + 3;
+// }
+// let timer = setInterval(move, 50);
+// document.getElementById('btn').onclick = function() { //6
+//   // как это работает. мы обращаемся к нашей кнопке по ее идентификатору
+//   // и вешаем обработчик onclick и после клика сработает функция
+//   clearInterval(timer); //7
 
-}
- // теперь напишем через sitTimeout
+// }
+// шаг третий
+ // теперь напишем через setTimeout
+// отл
+// let shift = 0;
+// let test = document.getElementById('test');
+// let timer;
+// function move() {
+//   test.style.marginLeft = shift + 'px';
+//   shift = shift + 30;
+//   sitTimeout(move, 90);
+// }
+// timer = setInterval(move, 50);
+// document.getElementById('btn').onclick = function() {
+//   // clearInterval(timer);
+//   clearTimeout(timer);
+// }
+// move();
 
-let shift = 0;
-let test = document.getElementById('test');
-let timer;
-function move() {
-  test.style.marginLeft = shift + 'px';
-  shift = shift + 30;
-  sitTimeout(move, 90);
-}
-timer = setInterval(move, 50);
-document.getElementById('btn').onclick = function() {
-  // clearInterval(timer);
-  clearTimeout(timer);
-}
-move();
-
- // теперь напишем обратный отсчет перед обратным действием 
+//  // теперь напишем обратный отсчет перед обратным действием 
   
- let a = ;
-obr();
-function obr () {
-  document.getElementById('num1').innerHTML = a;
-  a--;
-  if(a<0) {
-    clearTimeout(timer);
-    alert('stop таймер');
-  } else {
-    timer = setTimeout(obr,1000);
+//  let a = ;
+// obr();
+// function obr () {
+//   document.getElementById('num1').innerHTML = a;
+//   a--;
+//   if(a<0) {
+//     clearTimeout(timer);
+//     alert('stop таймер');
+//   } else {
+//     timer = setTimeout(obr,1000);
+//   }
+// }
+// задача 
+//   Посчитать четные и нечетные цифры введенного натурального числа. Например, если введено число 34560, то у него 3 четные цифры (4, 6 и 0) и 2 нечетные (3 и 5). четных (even) и нечетных (odd). Сделать через цикл while.
+const countOddAndEven = num => {
+  let obj = {
+    even:[],
+    odd:[]
+  };
+  let str = String(num);
+  let i = 0;
+  while(i < str.length) {
+    if(+str[i]%2 === 0){
+      obj.even.push(str[i]);
+      // obj.even = obj.even.concat(str[i]);
+    } else {
+      obj.odd.push(str[i]);
+      // obj.odd = obj.odd.concat(str[i]);
+     
+    }
+ i++;
   }
+  // console.log(array);
+  return obj;
+
 }
+let number = 34560;
+document.getElementById('btn').addEventListener('click',()=>document.getElementById('text').innerText = countOddAndEven(number).ev + '\n');
  
  
 

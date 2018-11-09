@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">жми сюда</button>
+	<p id="text"></p>
+	<script>
+		// Посчитать четные и нечетные цифры введенного натурального числа. Например, если введено число 34560, то у него 3 четные цифры (4, 6 и 0) и 2 нечетные (3 и 5). четных (even) и нечетных (odd). Сделать через цикл while.
+		const countOddAndEven = num => {
+			let obj = {
+			even:[],
+			odd:[]
+		};
+		let str = String(num);
+		let i = 0;
+		while(i < str.length) {
+			if(+str[i]%2 === 0){
+				obj.even.push(str[i]);
+				// obj.even = obj.even.concat(str[i]);
+			} else {
+				obj.odd.push(str[i]);
+				// obj.odd = obj.odd.concat(str[i]);
+				i++;
+			}
+
+		}
+		// console.log(array);
+		return obj;
+		
+		}
+		let number = 34560;
+		document.getElementById('btn').addEventListener('click',()=>document.getElementById('text').innerText = countOddAndEven(number).even + '\n');
+		
+
+	</script>
+</body>
+</html>
