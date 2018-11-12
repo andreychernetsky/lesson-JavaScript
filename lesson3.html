@@ -8,31 +8,90 @@
 	<button id="btn">жми сюда</button>
 	<p id="text"></p>
 	<script>
-		// Посчитать четные и нечетные цифры введенного натурального числа. Например, если введено число 34560, то у него 3 четные цифры (4, 6 и 0) и 2 нечетные (3 и 5). четных (even) и нечетных (odd). Сделать через цикл while.
-		const countOddAndEven = num => {
-			let obj = {
-			even:[],
-			odd:[]
-		};
-		let str = String(num);
-		let i = 0;
-		while(i < str.length) {
-			if(+str[i]%2 === 0){
-				obj.even.push(str[i]);
-				// obj.even = obj.even.concat(str[i]);
-			} else {
-				obj.odd.push(str[i]);
-				// obj.odd = obj.odd.concat(str[i]);
-				i++;
-			}
-
-		}
-		// console.log(array);
-		return obj;
 		
-		}
-		let number = 34560;
-		document.getElementById('btn').addEventListener('click',()=>document.getElementById('text').innerText = countOddAndEven(number).even + '\n');
+  // Напишите функцию provSpam(str), которая будет проверять строку на наличие подстрок: «spam», «sex», «xxx». И возвращать true, если есть данные подстроки и false в противном случае.
+
+  const provSpam = (str) => {
+      /*if (str.indexOf('spam') !==-1 || str.indexOf('sex') !==-1 || str.indexOf('xxx') !==-1) {
+        return true
+      } else {
+        return false;
+      }*/
+    return (str.indexOf('spam') !== -1 || str.indexOf('sex') !== -1 || str.indexOf('xxx') !== -1);
+  }
+
+  const string = "найти xxx "; //4
+
+  document.getElementById('btn').addEventListener('click',()=>document.getElementById('num1').innerText = provSpam(string));//5 //6 //7
+
+
+  // задача
+  //   Посчитать четные и нечетные цифры введенного натурального числа. Например, если введено число 34560, то у него 3 четные цифры (4, 6 и 0) и 2 нечетные (3 и 5). четных (even) и нечетных (odd). Сделать через цикл while.
+
+  
+  const countOddAndEven = num => {
+    let obj = {
+      even: [],
+      odd: []
+    };
+    let str = String(num);
+    let i = 0;
+    
+    while(i < str.length) {
+      if (+str[i] % 2 === 0) {
+        obj.even.push(str[i]);
+        // obj.even = obj.even.concat(str[i]);
+      } else {
+        obj.odd.push(str[i]);
+        // obj.odd = obj.odd.concat(str[i]);
+      }
+      
+      i++;
+    }
+    
+    // console.log(array);
+    return 'Even: ' + obj.even + ' Odd: ' + obj.odd;
+  };
+  
+  let number = 34560;
+  
+  document.getElementById('btn').addEventListener('click', () => document.getElementById('text').innerText = countOddAndEven(number) + '\n');
+
+
+
+
+		/*Заполнить массив нулями, кроме первого и последнего элементов, которые должны быть равны единице.
+1)напишем функцию arrFerstOne()
+2) в функцию передадим параметр len
+len это то,что передается в вызов функции
+3) создаем счетчик и где i< len
+4) создадим массив,куда поместим результат
+5) пишем условие
+если i = 0 это первая итерация,то мы должны подставить 1
+или это последний элемент массива ,то мы тоже должны заменить на 1
+6) пишем переменную last в нее поместим len-1
+len-1говорит о том, что при последней итерации заменить 0 на 1
+7) все остальное заполняем нулями
+8) пишем return и передаем arr1
+9)вызываем функцию в консоль
+*/
+
+function arrFerstOne(len){//1,2
+  let arr1 = [];//4
+  let last = len -1;
+
+  for(let i = 0; i < len; i++) {//3
+    if(i === 0 || i===last){
+      arr1 = arr1.concat(1);//5
+    } else {
+      arr1 = arr1.concat(0); //7
+    }
+  }
+
+  return arr1;
+}
+
+document.write(arrFerstOne(5));
 		
 
 	</script>
