@@ -121,36 +121,112 @@ function arrFerstOne(len){//1,2
 
 document.write(arrFerstOne(5));
 
- Найдите сумму наибольшего и наименьшего элементов массива.
-[1,5,2,4,8,7]
-
-  //   1)пишем функцию arrSumm()
+//   1)пишем функцию arrSumm()
 // 2) передаем параметр arrSumm(arr)
 // 3) создаем переменную arr1 в которой находится массив чисел
 // 4) пишем переменную min  в ней будет находится минимальное число из массива
 // 5) в переменной max будет храниться максимальное число поэтому ставим ноль, так как отрицательное там размещено не будет
-// 6)теперь напишем цикл где длину массива передадим в отдельную переменную
-// 7) пишем условие где max будет принимать из массива самое большое число.
+// 6)теперь напишем цикл, где длину массива передадим в отдельную переменную
+// 7) пишем условие, где max будет принимать из массива самое большое число.
 // 8) когда будут сопоставлены все элементы массива, то самое большое число будет помещено в max
 // 9)теперь найдем минимальное. делаем первую итерацию и говорим, что min больше. Значит пройдя все элементы в min будет помещено самое маленькое число
 // 10) в return мы передаем сложение двух чисел максимальное и минимальное
 // 11) вызываю функцию на исполнение и передаю в параметр arr1 та как в нем находится наш массив
 
-   function arrSumm(elem) {
-    let min;
-    let max = 0;
-    for(let i = 0, len = elem.length; i < len; i++ ){
-      if(i === 0 || min > elem[i]){
-        min = elem[i];
-      }
-      if(max < elem[i]){
-        max = elem[i];
-      }
+   function arrSumm(elem) { //1,2
+  let min; //4
+  let max = 0; //5
+
+  for(let i = 0, len = elem.length; i < len; i++ ){ //6
+    if(i=== 0 || min > elem[i]){
+      min = elem[i]; //9
     }
-    return 'min =' + min + '\n' + 'max =' + max + '\n' + (max+min);
-   }
-   const arr1 = [2,4,5,6,7,8,3,2,-3];
-   console.log(arrSumm(arr1));
+    if(max < elem[i]){ 
+      max = elem[i]; //7
+    }
+  }
+
+  return 'min =' + min + '\n' + 'max =' + max + '\n' + (max + min); //10 
+}
+
+const arr1 = [2,4,5,6,7,8,3,2,-3]; //3
+console.log(arrSumm(arr1)); //11
+
+
+// шаг второй
+  //12) создадим новый массив.
+  // 13)создаем второй цикл. Его задача найти больший и меньший элемент
+  // 14)пишем условие в переменную min перезапишем больший элемент
+  // 15)теперь тоже проделаем с max и поместим туда минимальный элемент
+
+function arrSum(arr) {
+  let min;
+  let max;
+  let newArr = []; //12
+
+  for (let i = 0, len = arr.length; i < len; i++) {
+    if(i===0 || min > arr[i]){
+      min = arr[i];
+    }
+    if(i===0 || max < arr[i]) {
+      max = arr[i];
+    }
+  }
+  
+
+  for(let j = 0, len = arr.length; j < len; j++) { //13
+    if(min === arr[j]){ //14
+      newArr = newArr.concat(max);
+      // console.log(newArr); //7
+    } else if (max === arr[j]) { //15
+      newArr = newArr.concat(min);
+    } else {
+      newArr = newArr.concat(arr[j]);
+    }
+  }
+  
+  return newArr;
+}
+const arr1 = [3,4,-2,5,6,7,-1];
+console.log(arrSum(arr1));
+
+function arrSum(arr) {
+  let min;
+  let max;
+  let newArr = [];
+
+for (let i = 0, len = arr.length; i < len; i++) {
+  if(i===0 || min > arr[i]){
+    min = arr[i];
+  }
+  if(i===0 || max < arr[i]) {
+    max = arr[i];
+  }
+}
+// шаг второй
+
+// Поменять местами наибольший и наименьший элементы массива.
+
+// создадим новый массив.
+// создаем второй цикл. Его задача найти больший и меньший элемент
+// пишем условие в переменную min перезапишем больший элемент
+// теперь тоже проделаем с max и поместим туда минимальный элемент
+
+for(let j = 0, len = arr.length; j < len; j++) {
+  if(min === arr[j]){
+   newArr = newArr.concat(max);
+   // console.log(newArr); //7
+  } else if (max === arr[j]) {
+    newArr = newArr.concat(min);
+  } else {
+    newArr = newArr.concat(arr[j]);
+  }
+}
+
+  return newArr;
+ }
+ const arr1 = [3,4,-2,5,6,7,-1];
+ console.log(arrSum(arr1))
 		
 
 	</script>
