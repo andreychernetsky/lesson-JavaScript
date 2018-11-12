@@ -227,6 +227,74 @@ for(let j = 0, len = arr.length; j < len; j++) {
  }
  const arr1 = [3,4,-2,5,6,7,-1];
  console.log(arrSum(arr1))
+
+ let arr = ['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']; 
+
+function myFunction(arr, parent) { 
+
+  for(let i = 0; i < arr.length; i++) { 
+    if (i == 5 || i == 6 ) { 
+      parent.innerHTML += ('<b>' + arr[i] + ' ' +'</b>'); 
+    } else { 
+      parent.innerHTML += arr[i] + ' '; 
+    } 
+  } 
+
+} 
+let demo = document.getElementById('demo'); 
+myFunction(arr, demo);
+
+// через тернарный оператор
+    // 1)проходим по массиву c конца 
+          //2)пишем условие
+             //3) пишем тернарный оператор 
+
+   let arr = ["пн","вт","ср","чт","пт","сб","вс"];
+
+   for(let i = arr.length-1; i >=0; i--) { //1
+     i == 5 || i == 6 ?  //3
+     document.write('<b>' + arr[i] + '</b></br>') :
+     document.write(arr[i] +'<br>');
+   }
+
+   // через forEach
+   let arr = ["пн","вт","ср","чт","пт","сб","вс"];
+
+   const fun = arr => arr.forEach((elem,i)=> i === 5 || i === 6 ?
+     document.write('<b>' + arr[i] + '</b></br>') :
+     document.write(arr[i] +'<br>'));
+     fun(arr); 
+
+        //через map
+
+let arr = ["пн","вт","ср","чт","пт","сб","вс"];
+
+const fun = arr => arr.map((elem, i)=> arr.length-i);
+document.write(fun(arr)); //7,6,5,4,3,2,1
+
+   // через объект
+
+   let dayObj={
+     ru:["пн","вт","ср","чт","пт","сб","вс"],
+     en:["mn","ch","wn","sd","fr","st","sn"]
+   };
+
+   const fun = (dayObj, key, index) => dayObj[key][index - 1];
+   document.write(fun(dayObj, 'en',1));
+   console.log(fun(dayObj, 'en',1));
+
+   // через таймер
+
+  let dayObj={
+     ru:["пн","вт","ср","чт","пт","сб","вс"],
+     en:["mn","ch","wn","sd","fr","st","sn"]
+   
+
+
+};
+   const fun = (dayObj, key, index) => dayObj[key][index - 1];
+   setTimeout(()=> document.write(fun(dayObj,'ru',2)),1000);
+
 		
 
 	</script>
