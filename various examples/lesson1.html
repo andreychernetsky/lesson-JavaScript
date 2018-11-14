@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson1</title>
+</head>
+<body>
+  <div class="main-block"></div>
+  <style>
+  .main-block {
+    width: 560px;
+    height: 560px;
+    margin: 30px auto;
+    border: 1px solid black;
+}
+.block {
+    width: 70px;
+    height: 70px;
+    float: left;
+}
+.black {
+    background: #000;
+}
+.white {
+    background: #fff;
+}
+    
+  </style>
+ <script>
+  // Метод querySelector() возвращает первый элемент, который соответствует одному или более CSS селекторам.
+//  Если совпадения не будет, то он вернет null.
+
+// querySelectorAll()
+// В отличии от querySelector(), 
+// который возвращает только первый пример всех совпадающих элементов, 
+// querySelectorAll() возвращает все элементы, которые подходят под указанный CSS селектор.
+
+// Метод appendChild() добавляет элемент, 
+// как последний потомок HTML элементу, который включен в этот метод.
+
+// Так как слово "class" является зарезервированным словом в Javascript, 
+// то при проектировании DOM решили, что соответствующее свойство будет называться className.
+
+// 1) создаем функцию drawChess();
+// 2)обращаемся к нашему mainBlock
+// 3) создадим переменную block. В ней будем хранить div
+// 4) пишем цикл for i
+// 5)пишем цикл for j
+// 6) через метод document.createElemnt() создадим div и поместим его в переменную block
+// 7) через метод document.appendChild() прикрепим block  к mainBlock
+// 8) вызовем функцию и в консоли в элементах должно отрисовывать 64 div
+// function drawChess() { //1
+//     let mainBlock = document.querySelector('.main-block'); //2
+//     let block; //3
+
+//     for(let i = 0; i < 8; i++) { //4
+//         for(let j = 0; j < 8; j++) { //5
+//              block = document.createElement('div');
+
+//     mainBlock.appendChild(block);
+//         }
+//     }
+   
+// }
+// drawChess();
+
+// шаг второй
+// 9) создадим переменную flag и присвоим true
+// это цвет клетки по умолчанию
+// 10)напишем условие для цикла j
+//  если j равен 0 т.е первому элементу,то цвет будет меняться на противоположный
+// 11) через метод className обращаемся к нашему block и цвету
+
+ function drawChess(){
+    let mainBlock = document.querySelector('.main-block');
+    let block;
+    let flag = true;
+
+      for (let i = 0; i<8; i++){
+        for (let j = 0; j<8; j++){
+            if (j==0){
+              flag = !flag;
+              } 
+            block = document.createElement('div');
+          
+
+            if (flag) {
+              block.className = 'block black';
+            }else {
+              block.className = 'block white';
+            }
+         
+           
+            mainBlock.appendChild(block);
+            flag = !flag;
+        }
+    }
+}
+
+drawChess();
+ </script>
+
+</body>
+</html>

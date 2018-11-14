@@ -57,6 +57,7 @@
   
   document.getElementById('btn').addEventListener('click', () => document.getElementById('text').innerText = countOddAndEven(number) + '\n');
 
+
   // еще вариант
   let number = 34560;
 document.getElementById('btn').addEventListener('click',()=>document.getElementById('text').innerText = countOddAndEven(number).even + '\n');
@@ -190,43 +191,7 @@ function arrSum(arr) {
 const arr1 = [3,4,-2,5,6,7,-1];
 console.log(arrSum(arr1));
 
-function arrSum(arr) {
-  let min;
-  let max;
-  let newArr = [];
-
-for (let i = 0, len = arr.length; i < len; i++) {
-  if(i===0 || min > arr[i]){
-    min = arr[i];
-  }
-  if(i===0 || max < arr[i]) {
-    max = arr[i];
-  }
-}
-// шаг второй
-
-// Поменять местами наибольший и наименьший элементы массива.
-
-// создадим новый массив.
-// создаем второй цикл. Его задача найти больший и меньший элемент
-// пишем условие в переменную min перезапишем больший элемент
-// теперь тоже проделаем с max и поместим туда минимальный элемент
-
-for(let j = 0, len = arr.length; j < len; j++) {
-  if(min === arr[j]){
-   newArr = newArr.concat(max);
-   // console.log(newArr); //7
-  } else if (max === arr[j]) {
-    newArr = newArr.concat(min);
-  } else {
-    newArr = newArr.concat(arr[j]);
-  }
-}
-
-  return newArr;
- }
- const arr1 = [3,4,-2,5,6,7,-1];
- console.log(arrSum(arr1))
+// example of one task
 
  let arr = ['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']; 
 
@@ -244,6 +209,8 @@ function myFunction(arr, parent) {
 let demo = document.getElementById('demo'); 
 myFunction(arr, demo);
 
+
+
 // через тернарный оператор
     // 1)проходим по массиву c конца 
           //2)пишем условие
@@ -257,7 +224,10 @@ myFunction(arr, demo);
      document.write(arr[i] +'<br>');
    }
 
+
+
    // через forEach
+
    let arr = ["пн","вт","ср","чт","пт","сб","вс"];
 
    const fun = arr => arr.forEach((elem,i)=> i === 5 || i === 6 ?
@@ -265,12 +235,16 @@ myFunction(arr, demo);
      document.write(arr[i] +'<br>'));
      fun(arr); 
 
+
+
         //через map
 
 let arr = ["пн","вт","ср","чт","пт","сб","вс"];
 
 const fun = arr => arr.map((elem, i)=> arr.length-i);
 document.write(fun(arr)); //7,6,5,4,3,2,1
+
+
 
    // через объект
 
@@ -283,14 +257,13 @@ document.write(fun(arr)); //7,6,5,4,3,2,1
    document.write(fun(dayObj, 'en',1));
    console.log(fun(dayObj, 'en',1));
 
+
    // через таймер
 
   let dayObj={
      ru:["пн","вт","ср","чт","пт","сб","вс"],
      en:["mn","ch","wn","sd","fr","st","sn"]
    
-
-
 };
    const fun = (dayObj, key, index) => dayObj[key][index - 1];
    setTimeout(()=> document.write(fun(dayObj,'ru',2)),1000);
