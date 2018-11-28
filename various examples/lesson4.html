@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<!-- flours-этажи
+	apart-квартиры на этаже
+	flat-квартира
+	entranse-подъезд
+    entranceApart-квартиры в одном подъезде
+	apartments-все квартиры в самом доме
+	countApart- 
+	allApartNumbers-все номера квартир
+	flatSearch-
+    
+	1) как найти общее количество квартир на этаже?
+
+	              описание действия. 
+	                   шаг первый
+
+	    1) напишем функцию countApartment() и передадим в нее четыре параметра
+	    flours-количество этажей в доме
+	    apart-количества квартир на этаже
+	    entrence-количество подъездов в доме
+	    flat-номер квартиры 
+         apartments-все квартиры в самом доме
+
+	    2) создадим переменную  const entranceApart в которую поместим
+	    умножение количество этажей дома  на кол кв на этаже 
+		const = apartments = Math.ronund(flours * apart);
+
+		3) создадим переменную
+
+	2) как определить количество квартир во всем подъезде?
+
+	     Для этого надо количество квартир в одном подъезде умножить на количество подъездов в самом доме.
+	     
+	3) как определить количества квартир на каждый подъезд?
+
+	    нам нужен массив который бы определял количество квартир на каждый подъезд, при этом подъезды могут меняться количеством и мы не должны быть к ним привязаны. Нужно продумать универсальность самого кода
+
+           создадим цикл while и в
+
+         создадим переменную  countApart в нее поместим все квартиры в самом доме и затем поместим в countApart квартиры одного подъезда так мы сформируем массив в котором будет определяться количества квартир на этаж
+	       и пушим в наш массив countApart
+
+ -->
+
+	<script>
+		
+function countApartment(flours,apart,entrance,flat) {
+	 const entranceApart = Math.round(flours * apart); //количество квартир в первом подъезде
+  const apartments = Math.round(entranceApart * entrance); //количество во всем доме
+  function arrApartments(entranceApart) {
+    const arr = [];
+    let countApart = 0;
+    
+    while (countApart < apartments) {
+      countApart += entranceApart;
+      
+      arr.push(countApart);
+    }
+    
+    return arr;
+  }
+  return arrApartments(entranceApart);
+}
+console.log(countApartment(4,4,3,22));
+
+
+      // шаг второй
+// 3) теперь нам нужно написать универсальный код ,который бы показывал подъезд к которому относится данная квартира
+
+   // условие должно быть универсальным и независеть от количество подъездов
+
+   // напишем функцию arrApartments() и параметром будем передавать количество всех квартир во всех подъездах
+
+   // создадим переменную allApartNumbers и поместим туда функцию с квартирами в подъезде arrApartments(entranceApart)
+
+    // пишем цикл for(let i = 0,len = allApartNumber.length; i < len; i++)
+    // чтобы for быстрее работал мы создадим переменную len и поместим туда длинну наших всех квартир в одном подъезде .
+
+    // в цикле пишем условие где будет идти проверка количества квартир в первом подъезде
+
+
+function countApartment(flours,apart,entrance,flat) {
+	 const entranceApart = Math.round(flours * apart); //количество квартир в первом подъезде
+  const apartments = Math.round(entranceApart * entrance); //количество во всем доме
+  function arrApartments(entranceApart) {
+    const arr = [];
+    let countApart = 0;
+    
+    while (countApart < apartments) {
+      countApart += entranceApart;
+      
+      arr.push(countApart);
+    }
+    
+    return arr;
+  }
+
+ const allApartNumbers = arrApartments(entranceApart);
+ let flatSearch = 0;
+
+ for(let i = 0,len = allApartNumbers.length; i < len; i++) {
+ 	// console.log(arrApartments[i]);
+ 	if(flat <= allApartNumbers[0]) {  // 
+      flatSearch = allApartNumbers[0];
+       console.log('e'); //определили квартиру в диапазоне 1-16 и как только
+       // квартира найдена срабатывает остановка
+       break;
+ 	}else if (allApartNumbers[i] < allApartNumbers[i + 1]){
+
+ 	}//теперь нужно определить второй подъезд если квартира будет больше 16 но меньше 33
+ 	// запись allApartNumbers[i + 1] говорит о переходе на вторую итерацию т.е. диапазон квартир от 17 до 32
+ 	 console.log(allApartNumbers[i+1]);
+  }
+   return allApartNumbers + ":" + flatSearch;
+}
+console.log(countApartment(4,4,3,17));
+
+/*
+// шаг пятый написать условие нахождение номера квартиры на этаже 
+// определение подъезда
+
+function countApartment(flours,apart,entrance,flat) {
+	 const entranceApart = Math.round(flours * apart); //количество квартир в первом подъезде
+  const apartments = Math.round(entranceApart * entrance); //количество во всем доме
+  function arrApartments(entranceApart) {
+    const arr = [];
+    let countApart = 0;
+    
+    while (countApart < apartments) {
+      countApart += entranceApart;
+      
+      arr.push(countApart);
+    }
+    
+    return arr;
+  }
+ const allApartNumbers = arrApartments(entranceApart);
+ let flatSearch = 0; //при вводе 0 кв будет ошибка
+
+ for(let i = 0,len = allApartNumber.length; i < len; i++) {
+ 	// console.log(arrApartments[i]);
+ 	if(flat <= allApartNumbers[0]) {
+ 		flatSearch = allApartNumbers[0]; //после того как будет определена квартира в диапазоне первого подъезда
+ 		//сработает break
+         break;
+ 	} else if (allApartNumbers[i] < flat && flat < arrApartments[i+1])//делаем переход на нахождения квартиры второго подъезда уже в своем диапазоне квартир. т.е получаем следующую итерацию  arrApartments[i+1]
+ 	// теперь нужно написать получение квартиры в диапазоне 20 и 40
+ 	break;
+  // } else if(allApartNumbers[i] < flat && allApartNumbers[i+1]===undefined) { если введено больше чем указано в параметре квартир,то выдаст ошибку
+  	flatSearch = 0;
+
+  	break;
+  }
+}
+console.log(countApartment(4,4,3,22));
+
+*/
+</script>	
+</body>
+</html>

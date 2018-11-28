@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>квартиры</title>
+</head>
+<body>
+<script>
+
+    /*
+    function findNumEntranse(flors, aparts, entrence, flat) {
+        const flatofEntrance = Math.round(flors * aparts);
+        const flatofHours = Math.round(flatofEntrance * entrence);
+
+        return function () {
+            let arr = [];
+            let counPart = 0;
+
+            while (counPart < flatofHours) {
+                counPart += flatofEntrance;
+                arr.push(counPart);
+            }
+
+            for (let i = 0; i < arr.length; i++) {
+                if (flat < arr[i]) {
+
+                    return i + 1;
+                }
+            }
+
+
+        }
+    }
+
+    console.log(findNumEntranse(3, 4, 4, 30)());
+    //
+    //вторй вариант
+    /кол-во этажей, кол-во квартир на этаж, количество подьездов, номер квартиры
+    function countApartment(flours, apart, entrance, flat) {
+        if (flat === 0) return 'Нулевых квартир не бывает';
+
+        const entranceApart = Math.round(flours * apart); //количество квартир в первом подьезде
+        const apartments = Math.round(entranceApart * entrance); //количество во всем доме
+
+        function arrApartments(entranceApart) {
+            const arr = [];
+            let countApart = 0;
+
+            while (countApart < apartments) {
+                countApart += entranceApart;
+
+                arr.push(countApart);
+            }
+
+            return arr;
+        }
+
+        const allApartNumbers = arrApartments(entranceApart);
+        let flatSearch = 0;
+
+        for (let i = 0, len = allApartNumbers.length; i < len; i++) {
+            if (flat <= allApartNumbers[0]) {
+                flatSearch = allApartNumbers[0];
+
+                break;
+            } else if (allApartNumbers[i] < flat && flat < allApartNumbers[i + 1]) {
+                flatSearch = allApartNumbers[i + 1];
+
+                break;
+            } else if (allApartNumbers[i] < flat && allApartNumbers[i + 1] === undefined) {
+                flatSearch = 0;
+
+                break;
+            }
+        }
+
+        if (flatSearch === 0) return 'Квартир в доме мнеьше чем вы задали. Общее число квартир в доме: ' + apartments;
+
+        return allApartNumbers.indexOf(flatSearch) + 1;
+    }
+
+    console.log(countApartment(5, 4, 3, 59));
+    */
+
+    function firstandmidle(str) {
+        const first = str.substr(0, 3);
+        const last = str.slice(-3);
+        let str1 = "";
+
+        if (str.length > 5) {
+
+            return first + "," + last;
+
+        } else {
+            let str2 = "";
+            for (let i = 0, len = str.length; i < len; i++) {
+                str2 += str[0];
+
+            }
+            return str2;
+        }
+
+
+    }
+
+    const str = 'вывereerreer';
+    console.log(firstandmidle(str));
+</script>
+</body>
+</html>
