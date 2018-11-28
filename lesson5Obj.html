@@ -101,6 +101,40 @@
     синтаксис удаления элемента из хэша
 
 
+    прмеры для улучшения понимания темы obj
+
+    const car = {
+        type:"fiat",
+        model:"500",
+        color:"white"
+    }
+    console.log(car.model);//500
+    console.log(car['model']);//500
+    console.log(car); //{type: "fiat", model: "500", color: "white"}
+
+    второй вариант
+
+    const car = {}
+    car.type="fiat",
+       car.model="500",
+        car.color="white"
+
+    console.log(car.model);//500
+    console.log(car['model']);//500
+    console.log(car); //{type: "fiat", model: "500", color: "white"}
+
+    еще пример
+
+    const person = {
+     firstName:"Andrey",
+        lastName:"chernetsky",
+        age:"34",
+        eyeColor:"green"
+    }
+    console.log(person.firstName);//Andrey
+    console.log(person);//{firstName: "Andrey", lastName: "chernetsky", age: "34", eyeColor: "green"}
+    console.log(person.firstName + " " + person.lastName + "=" + person.age); //Andrey chernetsky=34
+
 </script>
 </body>
 </html>
