@@ -166,6 +166,28 @@
 
     console.log(newObj); //{year create: 2018}
 
+    можно создать переменную и этот прием хорош для работы с циклом
+
+    const newObj = {};
+    let count = 'noName';
+    newObj[count] = 'no Name';
+
+    console.log(newObj); // {noName: "no Name"}
+
+    пример на проверку свойства
+
+    const obj1 = {};
+    obj1.body = 'рука';
+    obj1.adjective = 'большая';
+
+    const obj2 = {};
+    obj2.body = 'рука';
+    obj2.adjective = 'маленькая';
+
+    console.log(obj2.hasOwnProperty('body')); //true
+    console.log(obj2.body);//рука
+    console.log(obj2['body']);//рука
+
 
 </script>
 </body>
