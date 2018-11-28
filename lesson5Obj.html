@@ -114,7 +114,7 @@
 
     второй вариант
 
-    const car = {}
+    const car = {};
     car.type="fiat",
        car.model="500",
         car.color="white"
@@ -134,6 +134,38 @@
     console.log(person.firstName);//Andrey
     console.log(person);//{firstName: "Andrey", lastName: "chernetsky", age: "34", eyeColor: "green"}
     console.log(person.firstName + " " + person.lastName + "=" + person.age); //Andrey chernetsky=34
+
+    второй вариант
+
+    const person = {};
+        person.firstName = "Andrey",
+        person.lastName = "chernetsky",
+        person.age = "34",
+        person. eyeColor = "green"
+
+    console.log(person.firstName);//Andrey
+    console.log(person);//{firstName: "Andrey", lastName: "chernetsky", age: "34", eyeColor: "green"}
+    console.log(person.firstName + " " + person.lastName + "=" + person.age); //Andrey chernetsky=34
+
+    третий вариант
+
+    const person = {};
+    person['firstName'] = "Andrey",
+        person['lastName'] = "chernetsky",
+        person['age'] = "34",
+        person['eyeColor'] = "green"
+
+    console.log(person.firstName);//Andrey
+    console.log(person);//{firstName: "Andrey", lastName: "chernetsky", age: "34", eyeColor: "green"}
+    console.log(person.firstName + " " + person.lastName + "=" + person.age); //Andrey chernetsky=34
+
+    преимущество фигурных скобок в том, что можно передать через пробел
+
+    const newObj ={};
+    newObj['year create'] = 2018;
+
+    console.log(newObj); //{year create: 2018}
+
 
 </script>
 </body>
