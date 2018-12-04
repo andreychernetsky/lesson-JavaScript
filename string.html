@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*создай строку и выведи ее длину*/
+    /* function str (str){
+         return str.length;
+     }
+     const strWord = 'создай строку и выведи ее длину';
+     console.log(str(strWord));*/
+
+
+    //   выведи саму строку
+
+    /*function str (str){
+        let strWord2 = "";
+        for(let i = 0; i < str.length; i++){
+            strWord2 += str[i];
+        }
+        return strWord2;
+    }
+    const strWord = 'создай строку и выведи ее длину';
+    console.log(str(strWord));*/
+
+
+    //сделай заглавными все символы строки
+    /*function str(str) {
+        let strToUp =  str.toUpperCase();
+        return strToUp ;
+
+    }
+    const strWord = 'создай строку и выведи ее длину';
+    console.log(str(strWord)); //СОЗДАЙ СТРОКУ И ВЫВЕДИ ЕЕ ДЛИНУ*/
+
+
+    /*  выведи заглавной первый символ строки*/
+    /*выведи последний символ строки заглавным символом*/
+    /*function str(str) {
+        /!*let strToUp =  str.slice(0,1).toUpperCase() + str.slice(1);//Создай строку и выведи ее длину*!/
+        let strToUp = str.slice(0) + str.slice(0,-1).toUpperCase();
+        return strToUp ;
+
+    }
+    const strWord = 'создай строку и выведи ее длину';
+    console.log(str(strWord));*/
+
+    //    чтобЫ первыЙ симвоЛ строкИ внутрИ массивА стаЛ прописныМ,а последниЙ быЛ заглавныЙ.
+    /*Разделите предложение на символ пробела
+    Преобразование результирующего массива с использованием .map для заглавной буквы первого символа и ввода нижнего регистра остальных
+    Снова присоединю массив к пробелу, чтобы получить строку*/
+
+    /*function str(str) {
+        return input.split(" ").map(function(item) {
+            return item.charAt(0).toUpperCase() + item.slice(1);
+        }).join(" ");
+    }
+    const strWord = 'создай строку и выведи ее длину';
+    console.log(str(strWord));
+
+    /!*попробуем через регулярку*!/
+    function str(str) {
+        return  str.toLowerCase().replace(/[a-z]\b/g,function(elem) {
+            return elem.toUpperCase()
+        });
+
+    }
+    const strWord = 'создай строку и выведи ее длину';
+    console.log(str(strWord));*/
+
+    /*    использовать замену регулярного выражения*/
+    /*		Для обычных символов - делает их специальными. Например, выражение /s/ ищет просто
+символ 's'. А если поставить \ перед s, то /\s/ уже обозначает пробельный символ. И наоборот,
+    если символ специальный, например *, то \ сделает его просто обычным символом "звездочка".
+    Например, /a*!/ ищет 0 или больше подряд идущих символов 'a'. Чтобы найти а со
+звездочкой 'a*' - поставим \ перед спец. символом: /a\*!/.*/
+
+    /* .	(Десятичная точка) обозначает любой символ, кроме перевода строки:
+         \n \r \u2028 or \u2029. (можно использовать [\s\S] для поиска любого символа,
+         включая переводы строк). Например, /.n/ найдет 'an' и 'on' в "nay, an apple is on the tree",
+         но не 'nay'.*/
+    /*
+       \b			Находит границу слов (латинских), например пробел.
+       (Не путать с [\b]). Например, /\bn\w/ найдет 'no' в "noonday";
+       /\wy\b/ найдет 'ly' в "possibly yesterday."*/
+
+    /*function str(str) {
+        return str.toLowerCase().replace(/.\b/g,function(elem)) {
+            return elem.toUpperCase();
+        }
+
+    }
+    const strWord = 'создай строку и выведи ее длину';
+    console.log(str(strWord));*/
+
+
+
+</script>
+</body>
+</html>
