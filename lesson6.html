@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+<script>
+  //	написать функцию, которая рандомно выводила бы 10 значений в массив в диапазоне 20
+  function randomArr(len) {
+		const arr = [];
+		for(let i = 0; i < len; i ++) {
+			arr.push(Math.round(Math.random()*20));
+		}
+		return arr;
+	}
+	const num = 10;
+	console.log(randomArr(num)); //111
+
+  //	теперь напишем функцию, которая будет складывать элементы массива и находить среднее значение массива
+  //массив возьмем из предыдущей задачи.
+	
+  function sumElem(arr) {
+    let newArr = arr.reduce(function (p1, p2) {
+      return p1 + p2;
+    });
+    return Math.round(newArr / arr.length);
+  }
+
+  const arr = [4, 13, 6, 20, 16, 15, 2, 15, 12, 8];
+  console.log(sumElem(arr));//11
+	
+  //	теперь надо написать функцию, которая будет делать замену всех элементов в массиве  которые больше данногозначения на свое значение
+  function middleElem(arr, num) {
+    const arrMiddleElem = [];
+    
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > num){
+        arrMiddleElem.push(num);
+      } else {
+        arrMiddleElem.push(arr[i]);
+			}
+		}
+		
+		return arrMiddleElem;
+	}
+	const arr2 = [4, 13, 6, 20, 16, 15, 2, 15, 12, 8];
+  console.log(middleElem(arr2, 8));
+
+  //  переделаем на тернарный оператор
+  function middleElem(arr, num) {
+    const arrMiddleElem = [];
+
+    for (let i = 0; i < arr.length; i++) {
+       arrMiddleElem.push ((arr[i] > num) ? num : arr[i]) ;
+		}
+
+    return arrMiddleElem;
+  }
+  const arr2 = [4, 13, 6, 20, 16, 15, 2, 15, 12, 8];
+  console.log(middleElem(arr2, 8));
+
+  //  теперь попробуем из трех функций сделать одну задачу
+  /*1написать рандомный массив
+	2) найти сумму и среднее значение
+	3)заменить в массиве те элементы которые больше среднего значения*/
+
+ 
+	function findMiddleElement(count) {
+		 const randomArr = [];
+		 
+		 for (let i = 0; i < count; i++) {
+			 randomArr.push(Math.round(Math.random() * 20));
+		 }
+		 
+		 return randomArr;
+	 }
+ 
+	 function sumAndMiddleElem(randomArr) {
+		 let middleElem = randomArr.reduce(function (elem1, elem2) {
+			 return elem1 + elem2;
+		 }, 0);
+		 
+		 return Math.round(middleElem / randomArr.length);
+	 }
+ 
+	 function replaceItem(randomArr, middle) {
+		 const arrMiddleElem = [];
+		 
+		 for (let i = 0; i < randomArr.length; i++) {
+			 if(randomArr[i] > middle) {
+				 arrMiddleElem.push(middle);
+			 } else {
+				 arrMiddleElem.push(randomArr[i]);
+			 }
+		 }
+		 
+		 return arrMiddleElem;
+	 }
+ 
+	 const countElem = 10;
+	 const findMiddleElem = findMiddleElement(countElem);
+	 let meddleElement = sumAndMiddleElem(findMiddleElem);
+	/!* console.log(findMiddleElem) //вызов рандомного массива
+	 console.log(meddleElement); //вызов функции с средним элементом*!/
+	 console.log(replaceItem(findMiddleElem, meddleElement));
+	 
+ //  теперь переделаем на js 6*/
+
+  function findMiddleElement(count) {
+    const randomArr = [];
+
+    for(let i = 0; i < count; i++) {
+      randomArr.push(Math.round(Math.random() * 10));
+    }
+
+    return randomArr;
+  }
+
+  function  sumAndMiddleElem(arr) {
+    const sumNumbers = arr.reduce((sum,current) => sum + current, 0);
+    const middleNumber = Math.round(sumNumbers / arr.length);
+
+    return middleNumber;
+  }
+
+  function replaceItem(arr, middle) {
+    return arr.map(elem => (elem > middle) ? middle : elem);
+  }
+
+  const lengthArr = 10;
+  const findMiddleElem = findMiddleElement(lengthArr);
+  const meddleElement =  sumAndMiddleElem(findMiddleElem);
+
+	/*console.log(findMiddleElem);*/
+  /*console.log(meddleElement);//3*/
+	console.log(replaceItem(findMiddleElem,meddleElement));
+
+
+</script>
+</body>
+</html>
