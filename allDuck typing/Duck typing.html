@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+<script>
+
+
+  function makeArr(len) {
+    const arr = [];
+
+    for(let i = 0; i < len; i++) {
+      arr.push(Math.round(Math.random()*10));
+    }
+
+    return arr;
+  }
+  const lengthArr = 10;
+  const funArr = makeArr(lengthArr);
+  console.log(funArr);
+
+
+  function middleValue(arr) {
+    let result = arr.reduce(function (sum,current) {
+      return sum + current;
+    },0)
+
+    return Math.round(result/arr.length);
+  }
+
+  function replaseNum(arr,middle) {
+    const newArr = [];
+
+    for(let i = 0; i < arr.length; i++){
+      if(arr[i] > middle) {
+        newArr.push(middle);
+      } else {
+        newArr.push(arr[i]);
+      }
+    }
+
+    return newArr;
+  }
+
+  const lengthArr = 10;
+  const funArr = makeArr(lengthArr);
+  let middleNumber = middleValue(funArr);
+
+
+  console.log(funArr);
+  console.log(middleNumber);
+
+  console.log(replaseNum(funArr,middleNumber));
+
+
+  function makeArr(len) {
+    const arr = [];
+
+    for(let i = 0; i < len; i++) {
+      arr.push(Math.round(Math.random() * 10));
+    }
+
+    return arr;
+  }
+
+  function middleValue(arr) {
+    const sumNumbers = arr.reduce((sum,current) => sum + current, 0);
+    const middleNumber = Math.round(sumNumbers / arr.length);
+
+    return middleNumber;
+  }
+
+  function replaseNum(arr, middle) {
+    return arr.map(elem => (elem > middle) ? middle : elem);
+  }
+
+  const lengthArr = 10;
+  const funArr = makeArr(lengthArr);
+  const middleNumber = middleValue(funArr);
+
+
+  console.log(funArr);
+  console.log(middleNumber);
+
+  console.log(replaseNum(funArr, middleNumber));
+
+  function makeArr(len) {
+    if (!len.isFinite && isNaN(len)) return [];
+
+    const arr = [];
+
+    for(let i = 0; i < len; i++) {
+      arr.push(Math.round(Math.random() * 10));
+    }
+
+    return arr;
+  }
+
+  function middleValue(arr) {
+    if (!Array.isArray(arr) || arr.length === 0) return 0;
+
+    const sumNumbers = arr.reduce((sum,current) => sum + current, 0);
+    const middleNumber = Math.round(sumNumbers / arr.length);
+
+    return middleNumber;
+  }
+
+  function replaseNum(arr, middle) {
+    if (!Array.isArray(arr) || arr.length === 0 || (typeof middle !== 'number')) return [];
+
+    return arr.map(elem => (elem > middle) ? middle : elem);
+  }
+
+  const lengthArr = 10;
+  // const lengthArr = '10';
+  // const lengthArr = '10dd';
+  const funArr = makeArr(lengthArr);
+  const middleNumber = middleValue(funArr);
+  // const middleNumber = middleValue([]);
+  // const middleNumber = middleValue('dd');
+
+
+  console.log(funArr);
+  console.log(middleNumber);
+
+  console.log(replaseNum(funArr, middleNumber));
+  console.log(replaseNum(funArr, 0));
+  // console.log(replaseNum(2, middleNumber));
+  // console.log(replaseNum(funArr, 'dd'));
+  // console.log(replaseNum(2, 'dd'));
+
+
+</script>
+</body>
+</html>

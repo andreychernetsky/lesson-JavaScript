@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+<script>
+  /*
+https://learn.javascript.ru/json
+
+используется для представления объектов в виде строки.
+
+JSON.parse – читает объекты из строки в формате JSON.
+JSON.stringify – превращает объекты в строку в формате JSON, используется, когда нужно из JavaScript передать данные по сети.
+ */
+
+  var numbers = "[0, 1, 2, 3]";
+  numbers = JSON.parse(numbers);
+  alert( numbers[1] ); // 1
+
+  var user = '{ "name": "Вася", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
+  user = JSON.parse(user);
+  alert( user.friends[1] ); // 1
+
+
+  var text = '{ "employees" : [' +
+    '{ "firstName":"John" , "lastName":"Doe" },' +
+    '{ "firstName":"Anna" , "lastName":"Smith" },' +
+    '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+  console.log(JSON.parse(text))
+
+  /*****************************************************************/
+
+  var event = {
+    title: "Конференция",
+    date: "сегодня"
+  };
+  var str = JSON.stringify(event);
+  alert( str ); // {"title":"Конференция","date":"сегодня"}
+  event = JSON.parse(str); // Обратное преобразование.
+
+
+  //можно указать массив свойств, которые подлежат сериализации.
+  var user = {
+    name: "Вася",
+    age: 25
+  };
+  alert( JSON.stringify(user, ["name", "age"]) ); // {"name":"Вася","age":25}
+
+
+
+  //В методе JSON.stringify(value, replacer, space) есть ещё третий параметр space.
+  // Если он является числом – то уровни вложенности в JSON оформляются указанным количеством пробелов, если строкой – вставляется эта строка.
+  var user = {
+    name: "Вася",
+    age: 25,
+    roles: {
+      isAdmin: false,
+      isEditor: true
+    }
+  };
+  var str = JSON.stringify(user, "", 4);
+  alert( str );
+  /* Результат -- красиво сериализованный объект:
+	{
+			"name": "Вася",
+			"age": 25,
+			"roles": {
+					"isAdmin": false,
+					"isEditor": true
+			}
+	}
+	*/
+
+
+
+
+  let person = {
+    name: "Гомэр",
+    age: 40,
+    work: {
+      place: "Атомная станция",
+      location: "Спрингфилд"
+    }
+  };
+  // Пример с одним параметром
+  console.log(JSON.stringify(person));   // '{"name":"Гомэр","age":40,"work":{"place":"Атомная станция","location":"Спрингфилд"}}'
+
+  // Пример с двумя параметрами (массив)
+  console.log(JSON.stringify(person, ["name", "age"]));   // '{"name":"Гомэр","age":40}'
+
+  // Пример с тремя параметрами
+  console.log(JSON.stringify(person, null, 2));
+
+
+
+
+
+
+  const response = { soenm: 44 }; //err
+  // const response = '{ "soenm": 44 }'; //valid
+
+
+  function jsonTry(json) {
+    if (json) {
+      try {
+        return JSON.parse(json);
+      } catch (err) {
+        console.error(err.message);
+
+        return {};
+      }
+    }
+  }
+  console.log(jsonTry(response));
+
+  console.log('this is working');
+</script>
+</body>
+</html>

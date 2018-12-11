@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+<script>
+//	json-javascript Object Notation
+/*
+	let nameUser = {name:"petia",age:28}//{name: "petia", age: 28}
+	console.log(nameUser);
+	console.log(JSON.stringify(nameUser)); //{"name":"petia","age":28}
+	*/
+//	пример 2
+/*
+	let user = {
+	  name:"Иван",
+		age:26,
+		birthday:{
+	    year:1990,
+			month:"июнь",
+			day:29
+		}
+	}
+	console.log(JSON.stringify(user)); //{"name":"Иван","age":26,"birthday":{"year":1990,"month":"июнь","day":29}}*/
+	
+	
+//	пример 3
+
+  /*let user = {
+    name:"Иван",
+    age:26,
+    sayHi:function(){
+      console.log(this.name);
+    }
+  }
+  console.log(JSON.stringify(user)); //{"name":"Иван","age":26}*/
+  
+//  пример 4
+	/*let userName = {
+	  name:'user\'Name'
+	};
+	console.log(JSON.stringify(userName)); //{"name":"user'Name"}*/
+	
+//	пример с parse
+	let jsonStr = '{"name":"Иван","age":26,"birthday":{"year":1990,"month":"июнь","day":29}}';
+	let result = JSON.parse(jsonStr);
+	console.log(result); //выдает объект
+	console.log(result.age);//26
+	console.log(result.birthday.month);//июнь
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+<script>
+  /*let  x = [1,2,3];
+ if(x.splice);
+ console.log('это массив');*/
+
+  /*Обратите внимание — в  if(x.splice)  мы не вызываем метод  x.splice() , а пробуем получить само свойство  x.splice . Для массивов оно всегда есть и является функцией, т.е. даст в логическом контексте  true*/
+
+  //  проверка на дату
+  /*let x = new Date();
+	if(x.getTime) {
+		console.log('это дата');
+	}*/
+
+  /*проверка типа для пользовательских объектов.
+		Для проверки, кем был создан объект, есть оператор
+
+	instanceof
+	Вызов obj instanceof Constructor возвращает true, если объект принадлежит классу Constructor или классу, наследующему от него.
+		пример*/
+
+  /*function Animal(name) {
+		this.name = name;
+	}
+	let animal = new Animal("Винни-пух");
+	console.log(animal instanceof Animal);//true*/
+
+  //  instanceof  также работает для встроенных объектов:
+
+  /*let d = new Date();
+	console.log(d instanceof Date); //true
+
+
+пример*/
+
+  function f() {
+    console.log(f instanceof Function);
+  }
+
+  /*
+		Оператор  instanceof  может лишь осуществить проверку, он не позволяет получить тип в виде строки, но в большинстве случаев этого и не требуется.*/
+
+
+
+
+
+  //проверка на утиную типизацию
+  //  if(!arr.push || arr.length === 0) если не массив или он пустой,то это утка
+  function delElemsfromArr(arr, min, max) {
+    if (!arr.push || arr.length === 0) {
+      console.log('this is duck')
+    }
+    let newArr = [];
+    for (let i = 0; I < arr.length; i++) {
+      if (arr[i] >= min && arr[i] >= max) {
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
+  }
+
+  //	const myArr = [4,6,-8,-4,3,2,12,14];
+  const myArr = [];
+  console.log(delElemsfromArr(myArr, -2, 4))
+
+  //	теперь в return подставим тот тип данных ,который должен возвращаться
+
+  function delElemsfromArr(arr, min, max) {
+    if (!arr.push || arr.length === 0) {
+      return arr;
+    }
+    let newArr = [];
+    for (let i = 0; I < arr.length; i++) {
+      if (arr[i] >= min && arr[i] >= max) {
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
+  }
+
+  //	const myArr = [4,6,-8,-4,3,2,12,14];
+  const myArr = [];
+  console.log(delElemsfromArr(myArr, -2, 4))*/
+
+
+  //	задача на строки
+  // дан текст найти наибольшее количество подряд идущих чисел
+
+  // 1) действие определить все методы,которые позволяют сделать передвод строки в число
+  // через isNaN
+  // if(+(char))
+  //if(Number(char))
+  //if(parseInt(char))
+  // 2) написать утиную типизацию на проверку строки
+  // if (!str.isFinite && isNaN(str)) return 'это кряк';
+  // для проверки массива можно написать это
+  // if (!Array.isArray(arr) || arr.length === 0) return 0;
+
+  /*function totalCount(str) {
+	 if(typeof str || )
+		
+		let char;
+		let total ="";
+	 
+		for(let i = 0,len = str.length; i < len; i ++) {
+			char = str.charAt(i);
+			if(parseInt(char)) {
+				total += char;
+			}
+		
+		}
+		return total;
+	}
+	const srt1 = "454dcdc87dcx88899sxsx898939";
+	console.log(totalCount("454dcdc87dcx88899sxsx898939"));*/
+</script>
+</body>
+</html>
